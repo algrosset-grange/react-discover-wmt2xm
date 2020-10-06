@@ -1,9 +1,10 @@
 import React from "react";
-import {Header} from "../Header.js";
+import {Header_Part} from "../Header_Part.js";
+import {Footer_Part} from "../Footer_Part.js";
 export {Boddy_Home};
 
 
-const aaa = "bbbb";
+const aaa = "here is a constant out of the class";
 
 class Boddy_Home extends React.Component{
 
@@ -18,10 +19,15 @@ class Boddy_Home extends React.Component{
   render() {
     return (
     <React.Fragment>
-      aaaa
-      <Header />
-      {aaa} <br/>
+      <Header_Part />
+      <br/>
+      {aaa}
+      <br/>
+      <br/>
       Boddy_Home
+      <br/>
+      <br/>
+      <Footer_Part />
     </React.Fragment>
   );
   }

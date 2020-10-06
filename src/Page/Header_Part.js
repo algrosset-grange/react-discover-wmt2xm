@@ -1,9 +1,9 @@
 import React from 'react';
-export {Header};
+export {Header_Part};
 
-class Header extends React.Component{
+class Header_Part extends React.Component{
 
-  constructor(props) {
+  /*constructor(props) {
     super(props);
     //this.state = { name: 'Frarthur' };
     //this.changeName = this.changeName.bind(this);
@@ -17,11 +17,9 @@ class Header extends React.Component{
 
   render() {
     return (
-      <Header>
-        <div>
-          Here is header
-        </div>
-      </Header>
+      <header> 
+        Here is header 2
+      </header>
     );
   }
 }
