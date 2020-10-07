@@ -1,3 +1,4 @@
+
 import React from "react";
 import {Boddy_Home} from "./Page/Home/boddy_Home.js";
 import {
@@ -7,13 +8,37 @@ import {
   Link
 } from "react-router-dom";
 
+
+class Main extends React.Component{
+
+  render() {
+    
+  }
+
+}
+
+function Home() {
+  return <Boddy_Home />
+}
+
+function About() {
+  return <h2>About</h2>;
+}
+
+function Users() {
+  return <h2>Users</h2>;
+}
+
 export default function App_navigation() {
   return (
     <Router>
+      {window.location.href}
+      <br/>
+      {window.location.pathname}
       <div>
         <nav>
           <ul>
-            <li>
+             <li>
               <Link to="/">Home</Link>
             </li>
             <li>
