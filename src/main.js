@@ -11,6 +11,12 @@ import {
 
 class Main extends React.Component{
 
+  constructor() {
+    super(props);
+    this.state = { path: window.location.pathname};
+    this.changePath = this.changePath.bind(this);
+  }
+
   render() {
     
   }

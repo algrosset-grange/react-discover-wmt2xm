@@ -7,7 +7,7 @@ import {otherStyle} from './Style.js'
 class Parent extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { name: 'Frarthur' };
+    this.state = { name: '/' };
     this.changeName = this.changeName.bind(this);
   }
 
