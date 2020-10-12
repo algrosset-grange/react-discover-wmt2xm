@@ -19,6 +19,25 @@ export default class Main extends React.Component{
     this.changePath = this.changePath.bind(this);
   }
 
+  changePath(newPath)
+  {
+    switch (newPath)
+    {
+      case "/":
+        this.setState({
+          page: <Boddy_Home />
+        });
+      case "/about":
+        this.setState({
+          page: <About />
+        });
+      default:
+        this.setState({
+          page: <Boddy_Home />
+        });
+    }
+  }
+
   render() {
     return (
       this.state.page
