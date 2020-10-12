@@ -38,7 +38,6 @@ const styles = {
 
 let divStyle = {
   backgroundColor: styles.darkBlue,
-
   color: styles.white
 };
 

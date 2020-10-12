@@ -9,17 +9,21 @@ import {
 } from "react-router-dom";
 
 
-class Main extends React.Component{
+export default class Main extends React.Component{
 
   constructor() {
     super(props);
-    this.state = { path: window.location.pathname};
+    this.state = {  path: window.location.pathname,
+                    page: <Boddy_Home />
+    };
     this.changePath = this.changePath.bind(this);
   }
 
   render() {
-    
-  }
+    return (
+      this.state.page
+    )
+  };
 
 }
 
