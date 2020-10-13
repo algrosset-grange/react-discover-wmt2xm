@@ -7,7 +7,8 @@ import {
   Link
 } from "react-router-dom";
 
-export default function App_navigation() {
+export default class App_navigation extends React.Component {
+  render() {
   return (
     <Router>
       <div>
@@ -41,16 +42,17 @@ export default function App_navigation() {
       </div>
     </Router>
   );
+  }
 }
 
 function Home() {
-  return <Boddy_Home />
+  return ;
 }
 
 function About() {
-  return <h2>About</h2>;
+  return ;
 }
 
 function Users() {
-  return <h2>Users</h2>;
+  return ;
 }

@@ -1,6 +1,6 @@
 
 import React from "react";
-import {Boddy_Home} from "./Page/Home/boddy_Home.js";
+import {Boddy_Home} from "./Page/Home/Boddy_Home.js";
 import {
   BrowserRouter as Router,
   Switch,
@@ -9,9 +9,10 @@ import {
 } from "react-router-dom";
 
 
+
 export default class Main extends React.Component{
 
-  constructor() {
+  constructor(props) {
     super(props);
     this.state = {  path: window.location.pathname,
                     page: <Boddy_Home />
@@ -43,9 +44,9 @@ export default class Main extends React.Component{
       this.state.page
     )
   };
-
 }
 
+/*
 function Home() {
   return <Boddy_Home />
 }
@@ -56,8 +57,9 @@ function About() {
 
 function Users() {
   return <h2>Users</h2>;
-}
+}*/
 
+/*
 export default function App_navigation() {
   return (
     <Router>
@@ -80,7 +82,7 @@ export default function App_navigation() {
         </nav>
 
         {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
+            renders the first one that matches the current URL. }
         <Switch>
           <Route path="/about">
             <About />
@@ -96,18 +98,7 @@ export default function App_navigation() {
     </Router>
   );
 }
-
-function Home() {
-  return <Boddy_Home />
-}
-
-function About() {
-  return <h2>About</h2>;
-}
-
-function Users() {
-  return <h2>Users</h2>;
-}
+*/
 
 
 /*2nd Example: Nested Routing

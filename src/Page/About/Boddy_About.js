@@ -1,20 +1,15 @@
 import React from "react";
 import {Header_Part} from "../Header_Part.js";
 import {Footer_Part} from "../Footer_Part.js";
-export {Boddy_Home};
+import App_navigation from "../Nav-Bar.js"
 
-
-const aaa = "here is a constant out of the class";
-
-class Boddy_Home extends React.Component{
+export default class Boddy_About extends React.Component{
 
   constructor(props) {
     super(props);
     //this.state = { name: 'Frarthur' };
     //this.changeName = this.changeName.bind(this);
   }
-
-    ///<Header />
 
   render() {
     return (
@@ -24,7 +19,7 @@ class Boddy_Home extends React.Component{
       {aaa}
       <br/>
       <br/>
-      Boddy_Home
+      Boddy_About
       <br/>
       <br/>
       <Footer_Part />
