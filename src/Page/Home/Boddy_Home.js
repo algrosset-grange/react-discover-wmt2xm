@@ -5,7 +5,7 @@ export { Boddy_Home };
 import App_navigation from "../Nav-Bar.js";
 
 const aaa = "here is a constant out of the class";
-const nav = { App_navigation };
+//const nav = { App_navigation };
 
 class Boddy_Home extends React.Component {
   constructor(props) {
