@@ -1,29 +1,28 @@
-
 import React from "react";
-import {Boddy_Home} from "./Page/Home/Boddy_Home.js";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import { Boddy_Home } from "./Page/Home/Boddy_Home.js";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
+function Home() {
+  return <Boddy_Home />;
+}
 
+function About() {
+  return <About />;
+}
 
-export default class Main extends React.Component{
+function Users() {
+  return "ccc";
+}
 
+export default class Main extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {  path: window.location.pathname,
-                    page: <Boddy_Home />
-    };
+    this.state = { path: window.location.pathname, page: <Boddy_Home /> };
     this.changePath = this.changePath.bind(this);
   }
 
-  changePath(newPath)
-  {
-    switch (newPath)
-    {
+  changePath(newPath) {
+    /*switch (newPath) {
       case "/":
         this.setState({
           page: <Boddy_Home />
@@ -36,14 +35,29 @@ export default class Main extends React.Component{
         this.setState({
           page: <Boddy_Home />
         });
-    }
+    }*/
   }
 
   render() {
     return (
+      <Router>
+        <Switch>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/users">
+            <Users />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </Router>
+    );
+    /*return (
       this.state.page
-    )
-  };
+    )*/
+  }
 }
 
 /*
@@ -99,7 +113,6 @@ export default function App_navigation() {
   );
 }
 */
-
 
 /*2nd Example: Nested Routing
 This example shows how nested routing works. The route /topics loads the Topics component, which renders any further <Route>'s conditionally on the paths :id value.import React from "react";*/

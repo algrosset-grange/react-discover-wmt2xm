@@ -39,19 +39,19 @@ renders the first one that matches the current URL. */
   );
 }*/
 
-function Home() {
-  return "aaa";
-}
-
-function About() {
-  return "bbb";
-}
-
-function Users() {
-  return "ccc";
-}
-
 export default class App_navigation extends React.Component {
+  Home() {
+    return "aaa";
+  }
+
+  About() {
+    return "bbb";
+  }
+
+  Users() {
+    return "ccc";
+  }
+
   render() {
     return (
       <Router>
@@ -71,15 +71,9 @@ export default class App_navigation extends React.Component {
           </nav>
 
           <Switch>
-            <Route path="/about">
-              <About />
-            </Route>
-            <Route path="/users">
-              <Users />
-            </Route>
-            <Route path="/">
-              <Home />
-            </Route>
+            <Route path="/about">{this.About()}</Route>
+            <Route path="/users">{this.Users()}</Route>
+            <Route path="/">{this.Home()}</Route>
           </Switch>
         </div>
       </Router>
