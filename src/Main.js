@@ -3,7 +3,7 @@ import { Boddy_Home } from "./Page/Home/Boddy_Home.js";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function Home() {
-  return <Boddy_Home />;
+  return <Boddy_Home propsChangePath={this.changePath} />;
 }
 
 function About() {
@@ -22,6 +22,7 @@ export default class Main extends React.Component {
   }
 
   changePath(newPath) {
+    this.setState();
     /*switch (newPath) {
       case "/":
         this.setState({
@@ -38,6 +39,10 @@ export default class Main extends React.Component {
     }*/
   }
 
+  home() {
+    return <Boddy_Home propsChangePath={this.changePath} />;
+  }
+
   render() {
     return (
       <Router>
@@ -48,9 +53,7 @@ export default class Main extends React.Component {
           <Route path="/users">
             <Users />
           </Route>
-          <Route path="/">
-            <Home />
-          </Route>
+          <Route path="/">{this.home()}</Route>
         </Switch>
       </Router>
     );

@@ -1,4 +1,5 @@
 import React from "react";
+//import { PropTypes } from "react";
 //import { Boddy_Home } from "./Home/boddy_Home.js";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
@@ -40,8 +41,13 @@ renders the first one that matches the current URL. */
 }*/
 
 export default class App_navigation extends React.Component {
-  Home() {
-    return "aaa";
+  constructor(props) {
+    super(props);
+    this.home = this.home.bind(this);
+  }
+
+  home() {
+    this.props.propsChangePage("/");
   }
 
   About() {
@@ -73,7 +79,7 @@ export default class App_navigation extends React.Component {
           <Switch>
             <Route path="/about">{this.About()}</Route>
             <Route path="/users">{this.Users()}</Route>
-            <Route path="/">{this.Home()}</Route>
+            <Route path="/">{this.home()}</Route>
           </Switch>
         </div>
       </Router>

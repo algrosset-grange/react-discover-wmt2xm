@@ -12,8 +12,12 @@ class Boddy_Home extends React.Component {
     super(props);
     //this.state = { name: 'Frarthur' };
     //this.changeName = this.changeName.bind(this);
+    this.changePage = this.changePage.bind(this);
   }
 
+  changePage(e) {
+    this.props.propsChangePath(e);
+  }
   ///<Header />
 
   render() {
@@ -23,7 +27,7 @@ class Boddy_Home extends React.Component {
         <br />
         {aaa}
         <br />
-        <App_navigation />
+        <App_navigation propsChangePage={this.changePage} />
         <br />
         the Boddy_Homes
         <br />
