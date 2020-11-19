@@ -1,18 +1,7 @@
 import React from "react";
 import { Boddy_Home } from "./Page/Home/Boddy_Home.js";
+import Boddy_About from "./Page/About/Boddy_About.js";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
-function Home() {
-  return <Boddy_Home propsChangePath={this.changePath} />;
-}
-
-function About() {
-  return <About />;
-}
-
-function Users() {
-  return "ccc";
-}
 
 export default class Main extends React.Component {
   constructor(props) {
@@ -22,8 +11,9 @@ export default class Main extends React.Component {
   }
 
   changePath(newPath) {
-    this.setState();
-    /*switch (newPath) {
+    //this.setState({ path: window.location.pathname });
+  }
+  /*switch (newPath) {
       case "/":
         this.setState({
           page: <Boddy_Home />
@@ -37,25 +27,33 @@ export default class Main extends React.Component {
           page: <Boddy_Home />
         });
     }*/
-  }
 
   home() {
-    return <Boddy_Home propsChangePath={this.changePath} />;
+    return (
+      <Boddy_Home propsChangePath={this.changePath} path={this.props.path} />
+    );
+  }
+
+  about() {
+    return <Boddy_About propsChangePath={this.changePath} />;
+  }
+
+  users() {
+    return "ccc";
   }
 
   render() {
     return (
-      <Router>
-        <Switch>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/users">
-            <Users />
-          </Route>
-          <Route path="/">{this.home()}</Route>
-        </Switch>
-      </Router>
+      <React.Fragment>
+        {this.state.path}
+        <Router>
+          <Switch>
+            <Route path="/about">{this.about()}</Route>
+            <Route path="/users">{this.users()}</Route>
+            <Route path="/">{this.home()}</Route>
+          </Switch>
+        </Router>
+      </React.Fragment>
     );
     /*return (
       this.state.page

@@ -44,17 +44,19 @@ export default class App_navigation extends React.Component {
   constructor(props) {
     super(props);
     this.home = this.home.bind(this);
+    this.about = this.about.bind(this);
+    this.users = this.users.bind(this);
   }
 
   home() {
-    this.props.propsChangePage("/");
+    return this.props.propsChangePage("/");
   }
 
-  About() {
-    return "bbb";
+  about() {
+    return this.props.propsChangePage("/about");
   }
 
-  Users() {
+  users() {
     return "ccc";
   }
 
@@ -75,11 +77,14 @@ export default class App_navigation extends React.Component {
               </li>
             </ul>
           </nav>
-
           <Switch>
-            <Route path="/about">{this.About()}</Route>
-            <Route path="/users">{this.Users()}</Route>
-            <Route path="/">{this.home()}</Route>
+            {this.props.path != "/about" && (
+              <Route path="/about">{this.about()}</Route>
+            )}
+            {this.props.path != "/users" && (
+              <Route path="/users">{this.users()}</Route>
+            )}
+            {this.props.path != "/" && <Route path="/">{this.home()}</Route>}
           </Switch>
         </div>
       </Router>

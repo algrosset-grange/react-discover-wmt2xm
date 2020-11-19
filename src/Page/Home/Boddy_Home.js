@@ -27,7 +27,10 @@ class Boddy_Home extends React.Component {
         <br />
         {aaa}
         <br />
-        <App_navigation propsChangePage={this.changePage} />
+        <App_navigation
+          propsChangePage={this.changePage}
+          actualPath={this.props.path}
+        />
         <br />
         the Boddy_Homes
         <br />
