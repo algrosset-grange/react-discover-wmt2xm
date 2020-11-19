@@ -22,7 +22,7 @@ export default class Boddy_About extends React.Component {
         <br />
         {aaa}
         <br />
-        <App_navigation propsChangePage={this.changePage} />
+        {/*<App_navigation propsChangePage={this.changePage} />*/}
         <br />
         Boddy_About
         <br />

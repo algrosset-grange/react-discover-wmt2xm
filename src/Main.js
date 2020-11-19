@@ -47,8 +47,22 @@ export default class Main extends React.Component {
       <React.Fragment>
         {this.state.path}
         <Router>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/about">About</Link>
+              </li>
+              <li>
+                <Link to="/users">Users</Link>
+              </li>
+            </ul>
+          </nav>
           <Switch>
             <Route path="/about">{this.about()}</Route>
+            <Route path="/type_probability">{this.typeProba} </Route>
             <Route path="/users">{this.users()}</Route>
             <Route path="/">{this.home()}</Route>
           </Switch>
