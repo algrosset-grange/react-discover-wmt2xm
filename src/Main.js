@@ -1,6 +1,7 @@
 import React from "react";
 import { Boddy_Home } from "./Page/Home/Boddy_Home.js";
 import Boddy_About from "./Page/About/Boddy_About.js";
+import { Type_Probability } from "./Page/Type_Probability/Type_Probability_Home.js";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 export default class Main extends React.Component {
@@ -29,17 +30,15 @@ export default class Main extends React.Component {
     }*/
 
   home() {
-    return (
-      <Boddy_Home propsChangePath={this.changePath} path={this.props.path} />
-    );
+    return <Boddy_Home />;
   }
 
   about() {
-    return <Boddy_About propsChangePath={this.changePath} />;
+    return <Boddy_About />;
   }
 
-  users() {
-    return "ccc";
+  typeProba() {
+    return <Type_Probability />;
   }
 
   render() {
@@ -56,14 +55,13 @@ export default class Main extends React.Component {
                 <Link to="/about">About</Link>
               </li>
               <li>
-                <Link to="/users">Users</Link>
+                <Link to="/type_probability">Type de probabilité</Link>
               </li>
             </ul>
           </nav>
           <Switch>
             <Route path="/about">{this.about()}</Route>
             <Route path="/type_probability">{this.typeProba} </Route>
-            <Route path="/users">{this.users()}</Route>
             <Route path="/">{this.home()}</Route>
           </Switch>
         </Router>
