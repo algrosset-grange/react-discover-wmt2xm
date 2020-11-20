@@ -13,21 +13,28 @@ class Type_Probability extends React.Component {
       <React.Fragment>
         <Header_Part />
         <br />
-        <h1>Type de probabilité rencontre</h1>
+        <h1>Type de probabilité rencontré</h1>
         <br />
         <div>
           Il existe de nombreux cas dans la vie de tous les jours où nous sommes
-          confrontes aux probabilite. Les jeux d argent, repondre au pif a une
+          confrontés aux probabilités. Les jeux d'argent, repondre au pif à une
           question...
         </div>
         <div>
           Ici, vous allez trouver différents exemple. Si l'un de ses exemples
-          vous interesse, vous pourrez regarder sa page dedie
+          vous interesse, vous pourrez regarder sa page dédiée
         </div>
-        <div />
-
         <br />
-        <div />
+        <div>
+          "pile ou face" ou encore deux événements strictement oposés,
+          incompatibles
+        </div>
+        <div>
+          "A pile ou face, je paye 1 euro pour gagner 2 si pile apparait ou je
+          paye 2 pour gagner 3 si face apparait, quel est le plus profitable ?"
+        </div>
+        <br />
+        <div>a</div>
         <br />
         <Footer_Part />
       </React.Fragment>
