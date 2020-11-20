@@ -61,7 +61,7 @@ export default class Main extends React.Component {
           </nav>
           <Switch>
             <Route path="/about">{this.about()}</Route>
-            <Route path="/type_probability">{this.typeProba} </Route>
+            {/*<Route path="/type_probability">{this.typeProba} </Route>*/}
             <Route path="/">{this.home()}</Route>
           </Switch>
         </Router>
