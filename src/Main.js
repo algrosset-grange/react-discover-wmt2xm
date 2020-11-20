@@ -1,7 +1,7 @@
 import React from "react";
 import { Boddy_Home } from "./Page/Home/Boddy_Home.js";
 import Boddy_About from "./Page/About/Boddy_About.js";
-import { Type_Probability } from "./Page/Type_Probability/Type_Probability_Home.js";
+//import { Type_Probability } from "./Page/Type_Probability/Type_Probability_Home.js";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 export default class Main extends React.Component {

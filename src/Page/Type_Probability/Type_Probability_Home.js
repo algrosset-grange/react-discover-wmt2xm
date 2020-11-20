@@ -13,16 +13,16 @@ class Type_Probability extends React.Component {
       <React.Fragment>
         <Header_Part />
         <br />
-        <h1>Type de probabilité rencontré</h1>
+        <h1>Type de probabilité rencontre</h1>
         <br />
         <div>
           Il existe de nombreux cas dans la vie de tous les jours où nous sommes
-          confrontés aux probabilité. Les jeux d'argent, répondre au pif à une
-          question...{" "}
+          confrontes aux probabilite. Les jeux d argent, repondre au pif a une
+          question...
         </div>
         <div>
           Ici, vous allez trouver différents exemple. Si l'un de ses exemples
-          vous intéresse, vous pourrez regarder sa page dédié
+          vous interesse, vous pourrez regarder sa page dedie
         </div>
         <div />
 
