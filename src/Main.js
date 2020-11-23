@@ -2,6 +2,7 @@ import React from "react";
 import { Boddy_Home } from "./Page/Home.js";
 import Boddy_About from "./Page/About.js";
 import { Type_Probability } from "./Page/Type_Probability.js";
+import { Proba } from "./Page/Proba.js";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 export default class Main extends React.Component {
@@ -18,20 +19,6 @@ export default class Main extends React.Component {
   changePath(newPath) {
     //this.setState({ path: window.location.pathname });
   }
-  /*switch (newPath) {
-      case "/":
-        this.setState({
-          page: <Boddy_Home />
-        });
-      case "/about":
-        this.setState({
-          page: <About />
-        });
-      default:
-        this.setState({
-          page: <Boddy_Home />
-        });
-    }*/
 
   home() {
     return <Boddy_Home />;
@@ -46,7 +33,7 @@ export default class Main extends React.Component {
   }
 
   proba() {
-    return 0;
+    return <Proba />;
   }
 
   render() {
@@ -65,17 +52,13 @@ export default class Main extends React.Component {
               <li>
                 <Link to="/type_probability">Type de probabilité</Link>
               </li>
-              {this.state.proba != 0 && (
-                <li>
-                  <Link to="/probability/">Probabilités</Link>
-                </li>
-              )}
+              <li>
+                <Link to="/proba/">Probabilités</Link>
+              </li>
             </ul>
           </nav>
           <Switch>
-            {this.state.proba != 0 && (
-              <Route path="/proba">{this.proba()}</Route>
-            )}
+            <Route path="/proba">{this.proba()}</Route>
             <Route path="/about">{this.about()}</Route>
             <Route path="/type_probability">{this.typeProba()} </Route>
             <Route path="/">{this.home()}</Route>
