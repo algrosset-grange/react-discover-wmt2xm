@@ -1,13 +1,17 @@
 import React from "react";
-import { Boddy_Home } from "./Page/Home/Boddy_Home.js";
-import Boddy_About from "./Page/About/Boddy_About.js";
-import { Type_Probability } from "./Page/Type_Probability/Type_Probability_Home.js";
+import { Boddy_Home } from "./Page/Home.js";
+import Boddy_About from "./Page/About.js";
+import { Type_Probability } from "./Page/Type_Probability.js";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 export default class Main extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { path: window.location.pathname, page: <Boddy_Home /> };
+    this.state = {
+      proba: 0,
+      path: window.location.pathname,
+      page: <Boddy_Home />
+    };
     this.changePath = this.changePath.bind(this);
   }
 
@@ -41,6 +45,10 @@ export default class Main extends React.Component {
     return <Type_Probability />;
   }
 
+  proba() {
+    return 0;
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -57,9 +65,17 @@ export default class Main extends React.Component {
               <li>
                 <Link to="/type_probability">Type de probabilité</Link>
               </li>
+              {this.state.proba != 0 && (
+                <li>
+                  <Link to="/probability/">Probabilités</Link>
+                </li>
+              )}
             </ul>
           </nav>
           <Switch>
+            {this.state.proba != 0 && (
+              <Route path="/proba">{this.proba()}</Route>
+            )}
             <Route path="/about">{this.about()}</Route>
             <Route path="/type_probability">{this.typeProba()} </Route>
             <Route path="/">{this.home()}</Route>
