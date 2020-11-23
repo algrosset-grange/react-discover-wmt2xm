@@ -1,6 +1,6 @@
 import React from "react";
-import { Header_Part } from "../Header_Part.js";
-import { Footer_Part } from "../Footer_Part.js";
+import { Header_Part } from "../component_page/Header_Part.js";
+import { Footer_Part } from "../component_page/Footer_Part.js";
 export { Boddy_Home };
 
 const aaa = "here is a constant out of the class";

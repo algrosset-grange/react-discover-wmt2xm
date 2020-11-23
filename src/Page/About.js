@@ -1,7 +1,6 @@
 import React from "react";
 import { Header_Part } from "../Header_Part.js";
 import { Footer_Part } from "../Footer_Part.js";
-import App_navigation from "../Nav-Bar.js";
 
 const aaa = "here is a constant out of the class in about";
 
