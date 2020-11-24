@@ -8,23 +8,52 @@ class Proba extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      prob: 0
+      prob: 0,
+      firstValue: 50,
+      secondValue: 50
     };
-    this.plop = this.plop.bind(this);
+    this.ajust = this.ajust.bind(this);
   }
 
-  plop(e) {
-    e.preventDefault();
-    window.location.pathname = "/proba/piece";
-    this.setState({ prob: 1 });
-    return;
+  ajust(e) {
+    if (e.target.id == "proba-first-event-input") {
+      this.setState({
+        firstValue: e.target.value,
+        secondValue: 100 - e.target.value
+      });
+    }
+    if (e.target.id == "proba-second-event-input") {
+      this.setState({
+        secondValue: e.target.value,
+        firstValue: 100 - e.target.value
+      });
+    }
   }
 
   piece() {
     return (
       <div>
         <label for="proba-first-event-input">Premier event: </label>
-        <input id="proba-first-event-input" />
+        <input
+          type="number"
+          min="0"
+          max="100"
+          id="proba-first-event-input"
+          value={this.state.firstValue}
+          onChange={this.ajust}
+        />{" "}
+        %
+        <br />
+        <label for="proba-second-event-input">Second event: </label>
+        <input
+          type="number"
+          min="0"
+          max="100"
+          id="proba-second-event-input"
+          value={this.state.secondValue}
+          onChange={this.ajust}
+        />{" "}
+        %
       </div>
     );
   }
@@ -34,9 +63,8 @@ class Proba extends React.Component {
       <React.Fragment>
         {this.state.prob}
         <br />
-        <a href="/proba/piece" onClick={this.plop}>
-          Piece
-        </a>
+        {window.location.pathname}
+        <br />
       </React.Fragment>
     );
   }
@@ -44,6 +72,9 @@ class Proba extends React.Component {
   render() {
     return (
       <Router>
+        <li>
+          <Link to="/proba/piece">piece</Link>
+        </li>
         <Switch>
           <Route path="/proba/piece">{this.piece()}</Route>
           <Route path="/proba">{this.mainProba()}</Route>
