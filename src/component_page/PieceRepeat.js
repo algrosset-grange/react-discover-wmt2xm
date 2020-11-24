@@ -31,10 +31,7 @@ class PieceRepeat extends React.Component {
     return (
       <div>
         <div>
-          <label for="proba-first-event-input">nombre de répétition: </label>
-        </div>
-        <div>
-          <label for="proba-first-event-input">Premier événement: </label>
+          <label for="proba-first-event-input">Pile : </label>
           <input
             type="number"
             min="0"
@@ -55,17 +52,24 @@ class PieceRepeat extends React.Component {
             onChange={this.ajust}
           />
         </div>
+
         <div>
-          nombre d'essais avant d'avoir 100% (arrondie) de chance réussir à obtenir le premier événement : {1}
-          <br />
-          chance d'obtenir une série de 
-          <input
+          nombre d'essais avant d'avoir au moins <input
             type="number"
             min="0"
             id="nb-serie"
             value={}
             onChange={}
-          /> premier événement à la suite
+          />
+           de chance réussir à obtenir le premier événement : {1} répétition{1 > 1 && 's'}
+          <br />
+          chance d'obtenir une série de <input
+            type="number"
+            min="0"
+            id="nb-serie"
+            value={}
+            onChange={}
+          /> premier événement à la suite : {}
         </div>
       </div>
     );
