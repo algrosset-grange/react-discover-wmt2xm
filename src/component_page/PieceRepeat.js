@@ -61,7 +61,7 @@ class PieceRepeat extends React.Component {
             value={}
             onChange={}
           />
-           de chance réussir à obtenir le premier événement : {1} répétition{1 > 1 && 's'}
+           de chance réussir à obtenir le premier événement : {1} loi de Pascal répétition{1 > 1 && 's'}
           <br />
           chance d'obtenir une série de <input
             type="number"
