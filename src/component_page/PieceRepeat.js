@@ -7,9 +7,24 @@ class PieceRepeat extends React.Component {
     this.state = {
       prob: 0,
       firstValue: 50,
-      secondValue: 50
+      secondValue: 50,
+      nbEpreuve: 1
     };
     this.ajust = this.ajust.bind(this);
+  }
+
+  getCoefficientBinomial(nbEpreuve, nbSucces)
+  {
+    if (nbEpreuve == 0 || nbSucces == 0 || nbSucces == nbEpreuve)
+      return (1);
+    if (nbSucces == 1 || nbSucces == nbEpreuve - 1)
+      return (nbEpreuve);
+    return (getCoefficientBinomial(nbEpreuve - 1, nbSucces - 1) + getCoefficientBinomial(nbEpreuve - 1, nbSucces));
+  }
+
+  LoiPascal(nbEpreuve, nbSucces, probaSucces)
+  {
+    return (getCoefficientBinomial(nbEpreuve, nbSucces) * Math.pow(probaSucces, nbSucces) * Math.pow(1 - probaSucces, nbEpreuve - nbSucces) );
   }
 
   ajust(e) {
@@ -42,28 +57,23 @@ class PieceRepeat extends React.Component {
           />
         </div>
         <div>
-          <label for="proba-second-event-input">Second événement: </label>
-          <input
-            type="number"
-            min="0"
-            max="100"
-            id="proba-second-event-input"
-            value={this.state.secondValue}
-            onChange={this.ajust}
-          />
+        Face : {100 - this.state.firstValue}
         </div>
 
         <div>
-          nombre d'essais avant d'avoir au moins <input
+          nombre d'essais : <input
             type="number"
             min="0"
             id="nb-serie"
-            value={}
+            value={this.state.nbEpreuve}
             onChange={}
           />
-           de chance réussir à obtenir le premier événement : {1} loi de Pascal répétition{1 > 1 && 's'}
+        </div>
+        <div>
+        chance pour obtenir 
+          de chance réussir à obtenir le premier événement : {1} loi de Pascal répétition{1 > 1 && 's'}
           <br />
-          chance d'obtenir une série de <input
+          chance d'obtenir  de <input
             type="number"
             min="0"
             id="nb-serie"

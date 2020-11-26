@@ -1,8 +1,7 @@
-import React from 'react';
-export {Header_Part};
+import React from "react";
+export { Header_Part };
 
-class Header_Part extends React.Component{
-
+class Header_Part extends React.Component {
   /*constructor(props) {
     super(props);
     //this.state = { name: 'Frarthur' };
@@ -16,10 +15,6 @@ class Header_Part extends React.Component{
   }*/
 
   render() {
-    return (
-      <header> 
-        Here is header 2
-      </header>
-    );
+    return <header>Here is header 2</header>;
   }
 }
