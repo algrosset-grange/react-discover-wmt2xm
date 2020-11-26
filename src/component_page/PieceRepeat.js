@@ -6,9 +6,9 @@ class PieceRepeat extends React.Component {
     super(props);
     this.state = {
       prob: 0,
-      firstValue: 50,
-      secondValue: 50,
-      nbEpreuve: 1
+      pileValue: 50,
+      nbEpreuve: 1,
+      nbSucces: 0
     };
     this.ajust = this.ajust.bind(this);
   }
@@ -19,25 +19,28 @@ class PieceRepeat extends React.Component {
       return (1);
     if (nbSucces == 1 || nbSucces == nbEpreuve - 1)
       return (nbEpreuve);
-    return (getCoefficientBinomial(nbEpreuve - 1, nbSucces - 1) + getCoefficientBinomial(nbEpreuve - 1, nbSucces));
+    return (this.getCoefficientBinomial(nbEpreuve - 1, nbSucces - 1) + this.getCoefficientBinomial(nbEpreuve - 1, nbSucces));
   }
 
-  LoiPascal(nbEpreuve, nbSucces, probaSucces)
+  loiPascal(nbEpreuve, nbSucces, probaSucces)
   {
-    return (getCoefficientBinomial(nbEpreuve, nbSucces) * Math.pow(probaSucces, nbSucces) * Math.pow(1 - probaSucces, nbEpreuve - nbSucces) );
+    return (this.getCoefficientBinomial(nbEpreuve, nbSucces) * Math.pow(probaSucces, nbSucces) * Math.pow(1 - probaSucces, nbEpreuve - nbSucces) );
   }
 
   ajust(e) {
-    if (e.target.id == "proba-first-event-input") {
+    if (e.target.id == "pile-input") {
       this.setState({
-        firstValue: e.target.value,
-        secondValue: 100 - e.target.value
+        pileValue: e.target.value
       });
     }
-    if (e.target.id == "proba-second-event-input") {
+    if (e.target.id == "nb-experience-input") {
       this.setState({
-        secondValue: e.target.value,
-        firstValue: 100 - e.target.value
+        nbEpreuve: e.target.value
+      });
+    }
+    if (e.target.id == "nb-succes-input") {
+      this.setState({
+        nbSucces: e.target.value
       });
     }
   }
@@ -46,32 +49,40 @@ class PieceRepeat extends React.Component {
     return (
       <div>
         <div>
-          <label for="proba-first-event-input">Pile : </label>
+          <label for="pile-label">Pile : </label>
           <input
             type="number"
             min="0"
             max="100"
-            id="proba-first-event-input"
-            value={this.state.firstValue}
+            id="pile-input"
+            value={this.state.pileValue}
             onChange={this.ajust}
-          />
+          /> %
         </div>
         <div>
-        Face : {100 - this.state.firstValue}
+        Face : {100 - this.state.pileValue} %
         </div>
 
         <div>
           nombre d'essais : <input
             type="number"
             min="0"
-            id="nb-serie"
+            id="nb-experience-input"
             value={this.state.nbEpreuve}
-            onChange={}
+           onChange={this.ajust}
           />
         </div>
+
         <div>
-        chance pour obtenir 
-          de chance réussir à obtenir le premier événement : {1} loi de Pascal répétition{1 > 1 && 's'}
+          Probabilité d'obtenir <input
+            type="number"
+            min="0"
+            id="nb-succes-input"
+            value={this.state.nbSucces}
+            onChange={this.ajust}
+          /> succès : {this.loiPascal(this.state.nbEpreuve, this.state.nbSucces, this.state.pileValue/100)}
+          
+          
           <br />
           chance d'obtenir  de <input
             type="number"
