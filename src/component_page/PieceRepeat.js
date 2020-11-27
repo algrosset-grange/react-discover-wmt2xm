@@ -8,7 +8,8 @@ class PieceRepeat extends React.Component {
       prob: 0,
       pileValue: 50,
       nbEpreuve: 1,
-      nbSucces: 0
+      nbSucces: 0,
+      nbEchec: 0
     };
     this.ajust = this.ajust.bind(this);
   }
@@ -22,9 +23,14 @@ class PieceRepeat extends React.Component {
     return (this.getCoefficientBinomial(nbEpreuve - 1, nbSucces - 1) + this.getCoefficientBinomial(nbEpreuve - 1, nbSucces));
   }
 
-  loiPascal(nbEpreuve, nbSucces, probaSucces)
+  loiBinomial(nbEpreuve, nbSucces, probaSucces)
   {
     return (this.getCoefficientBinomial(nbEpreuve, nbSucces) * Math.pow(probaSucces, nbSucces) * Math.pow(1 - probaSucces, nbEpreuve - nbSucces) );
+  }
+
+  loiGeometrique(probaSucces, nbEchec)
+  {
+    return (probaSucces * Math.pow(1-probaSucces, nbEchec));
   }
 
   ajust(e) {
@@ -41,6 +47,11 @@ class PieceRepeat extends React.Component {
     if (e.target.id == "nb-succes-input") {
       this.setState({
         nbSucces: e.target.value
+      });
+    }
+    if (e.target.id == "nb-echec-input") {
+      this.setState({
+        nbEchec: e.target.value
       });
     }
   }
@@ -74,13 +85,16 @@ class PieceRepeat extends React.Component {
         </div>
 
         <div>
-          Probabilité d'obtenir <input
+        Remarque : En moyenne, vous obtenez au moins 1 pile en {1/(this.state.pileValue/100)} tentatives
+        </div>
+        <div>
+          Probabilité d'obtenir un pile après <input
             type="number"
             min="0"
-            id="nb-succes-input"
-            value={this.state.nbSucces}
+            id="nb-echec-input"
+            value={this.state.nbEchec}
             onChange={this.ajust}
-          /> succès : {this.loiPascal(this.state.nbEpreuve, this.state.nbSucces, this.state.pileValue/100)}
+          /> faces : {this.loiGeometrique(this.state.pileValue/100, this.state.nbEchec)}
           
           
           <br />
