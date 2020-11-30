@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 export { Proba };
 import { Piece } from "../component_page/Piece.js";
 import { PieceRepeat } from "../component_page/PieceRepeat.js";
+import { RouletteEuropeen } from "../component_page/RouletteEuropeen.js";
 
 class Proba extends React.Component {
   constructor(props) {
@@ -17,12 +18,18 @@ class Proba extends React.Component {
           <Link to="/proba/piece">piece</Link>
         </li>
         <li>
-          <Link to="/proba/pieceRepeat">piece lancé plusieurs fois</Link>
+          <Link to="/proba/piece-repeat">piece lancé plusieurs fois</Link>
+        </li>
+        <li>
+          <Link to="/proba/roulette-europeenne">Roulette européenne</Link>
         </li>
         <br />
         <Switch>
           <Route path="/proba/piece">{<Piece />}</Route>
-          <Route path="/proba/pieceRepeat">{<PieceRepeat />}</Route>
+          <Route path="/proba/piece-repeat">{<PieceRepeat />}</Route>
+          <Route path="/proba/roulette-europeenne">
+            {<RouletteEuropeen />}
+          </Route>
         </Switch>
       </Router>
     );

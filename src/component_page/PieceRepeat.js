@@ -1,5 +1,7 @@
 import React from "react";
 export { PieceRepeat };
+import loiBinomial from "./loiBinomial.js";
+import loiGeometrique from "./loiGeometrique.js";
 
 class PieceRepeat extends React.Component {
   constructor(props) {
@@ -12,27 +14,6 @@ class PieceRepeat extends React.Component {
       nbEchec: 0
     };
     this.ajust = this.ajust.bind(this);
-  }
-
-  getCoefficientBinomial(nbEpreuve, nbSucces) {
-    if (nbEpreuve == 0 || nbSucces == 0 || nbSucces == nbEpreuve) return 1;
-    if (nbSucces == 1 || nbSucces == nbEpreuve - 1) return nbEpreuve;
-    return (
-      this.getCoefficientBinomial(nbEpreuve - 1, nbSucces - 1) +
-      this.getCoefficientBinomial(nbEpreuve - 1, nbSucces)
-    );
-  }
-
-  loiBinomial(nbEpreuve, nbSucces, probaSucces) {
-    return (
-      this.getCoefficientBinomial(nbEpreuve, nbSucces) *
-      Math.pow(probaSucces, nbSucces) *
-      Math.pow(1 - probaSucces, nbEpreuve - nbSucces)
-    );
-  }
-
-  loiGeometrique(probaSucces, nbEchec) {
-    return probaSucces * Math.pow(1 - probaSucces, nbEchec);
   }
 
   ajust(e) {
@@ -70,8 +51,8 @@ class PieceRepeat extends React.Component {
             id="pile-input"
             value={this.state.pileValue}
             onChange={this.ajust}
-          />{" "}
-          %
+          />
+          {" %"}
         </div>
         <div>Face : {100 - this.state.pileValue} %</div>
 
@@ -91,6 +72,22 @@ class PieceRepeat extends React.Component {
           {Math.round((10 * 1) / (this.state.pileValue / 100)) / 10} tentatives
         </div>
         <div>
+          probabilité d'obtenir{" "}
+          <input
+            type="number"
+            min="0"
+            id="nb-succes-input"
+            value={this.state.nbSucces}
+            onChange={this.ajust}
+          />{" "}
+          pile :{" "}
+          {loiBinomial(
+            this.state.nbEpreuve,
+            this.state.nbSucces,
+            this.state.pileValue / 100
+          )}
+        </div>
+        <div>
           Probabilité d'obtenir un pile après{" "}
           <input
             type="number"
@@ -100,8 +97,7 @@ class PieceRepeat extends React.Component {
             onChange={this.ajust}
           />{" "}
           faces :{" "}
-          {this.loiGeometrique(this.state.pileValue / 100, this.state.nbEchec) *
-            100}
+          {loiGeometrique(this.state.pileValue / 100, this.state.nbEchec) * 100}
           %
         </div>
       </div>
