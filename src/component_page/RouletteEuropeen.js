@@ -59,52 +59,69 @@ class RouletteEuropeen extends React.Component {
           les 36 autres cases sont répartie équitablement (noté que tous les
           nombres pair ne sont pas rouge.)
         </div>
-        <div>
-          Il y a donc une case sur 36 (1/36) de tomber sur le bon numéro, on
-          remporte 35 fois la mise
-          <br />
-          18/37 en misant pair (0 non inclus), impair, noir ou rouge, on
-          remporte 1 fois la mise.
-          <br />
-          <br />
-          <ul>
-            Mise sur un numéro (plein) → 35 fois la mise. (1 chance sur 36) soit{" "}
-            {arrondis((1 / 36) * 100)}%
-          </ul>
-          <ul>
-            Mise sur deux numéros (cheval : exemple : 7-10) → 17 fois la mise.
-            (2 chance sur 36) soit {arrondis((2 / 36) * 100)}%
-          </ul>
-          <ul>
-            Mise sur trois numéros (transversale dite aussi « transversale
-            pleine » : exemple : 7-8-9) → 11 fois la mise.{" "}
-            {arrondis((3 / 36) * 100)}%
-          </ul>
-          <ul>
-            Mise sur quatre numéros (carré : exemple : 25-26-28-29) → 8 fois la
-            mise. {arrondis((4 / 36) * 100)}%
-          </ul>
-          <ul>
-            Mise sur six numéros (sixain dit aussi « transversale simple » :
-            exemple : 13-14-15-16-17-18) → 5 fois la mise.{" "}
-            {arrondis((6 / 36) * 100)}%
-          </ul>
-          <ul>
-            Mise sur douze numéros (douzaine ou colonne : exemple : colonne 1-34
-            ou douzaine 1-12) → 2 fois la mise. {arrondis((12 / 36) * 100)}%
-          </ul>
-          <ul>
-            Mise sur une chance simple, soit dix-huit numéros (Noir-Rouge -
-            Pair-Impair - Manque-Passe) → 1 fois la mise.{" "}
-            {arrondis((1 / 36) * 100)}%
-          </ul>
-          <ul>
-            Mise sur vingt-quatre numéros (deux colonnes adjacentes,
-            vingt-quatre premiers (1-24) ou vingt-quatre derniers (13-36), ces
-            mises étant placées à cheval sur les colonnes ou les douzaines) → la
-            moitié de la mise {arrondis((24 / 36) * 100)}%
-          </ul>
-        </div>
+        <h2>description des paris possibles</h2>
+        <tab>
+          <tr>
+            <th>description</th>
+            <th>gain</th>
+            <th>chance de réussir (en %)</th>
+          </tr>
+          <tr>
+            <td>mise sur une case</td>
+            <td>35 fois la mise</td>
+            <td>{arrondis((1 / 37) * 100)}</td>
+          </tr>
+          <tr>
+            <td>Mise sur deux numéros</td>
+            <td>17 fois la mise</td>
+            <td>{arrondis((2 / 37) * 100)}</td>
+          </tr>
+          <tr>
+            <td>
+              Mise sur trois numéros (transversale dite aussi « transversale
+              pleine » : exemple : 7-8-9)
+            </td>
+            <td>11 fois la mise</td>
+            <td>{arrondis((3 / 37) * 100)}</td>
+          </tr>
+          <tr>
+            <td>Mise sur quatre numéros (carré : exemple : 25-26-28-29)</td>
+            <td>8 fois la mise</td>
+            <td>{arrondis((4 / 37) * 100)}</td>
+          </tr>
+          <tr>
+            <td>
+              Mise sur six numéros (sixain dit aussi « transversale simple » :
+              exemple : 13-14-15-16-17-18)
+            </td>
+            <td>5 fois la mise</td>
+            <td>{arrondis((6 / 37) * 100)}</td>
+          </tr>
+          <tr>
+            <td>
+              Mise sur douze numéros (douzaine ou colonne : exemple : colonne
+              1-34 ou douzaine 1-12)
+            </td>
+            <td>2 fois la mise</td>
+            <td>{arrondis((12 / 37) * 100)}</td>
+          </tr>
+          <tr>
+            <td>
+              Mise sur une chance simple, soit dix-huit numéros (Noir-Rouge -
+              Pair-Impair - Manque-Passe)
+            </td>
+            <td>1 fois la mise</td>
+            <td>{arrondis((18 / 37) * 100)}</td>
+          </tr>
+          <tr>
+            <td>
+              Mise sur vingt-quatre numéros (deux colonnes adjacentes,
+              vingt-quatre premiers (1-24) ou vingt-quatre derniers (13-36)
+            </td>
+            <td>1/2 fois la mise</td>
+            <td>{arrondis((24 / 37) * 100)}</td>
+          </tr>
+        </tab>
       </React.Fragment>
     );
   }
