@@ -1,5 +1,4 @@
-import coefficientBinomial from "./coefficientBinomial.js";
-
+import coefficientBinomial from "./getCoefficientBinomial.js";
 export default function loiBinomial(nbEpreuve, nbSucces, probaSucces) {
   return (
     coefficientBinomial(nbEpreuve, nbSucces) *
