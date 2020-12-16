@@ -6,7 +6,6 @@ class RouletteEuropeen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      sommetotal: 0,
       sommeDepart: 0,
       gainOrLose: 0,
       sommeActuel: 0
@@ -27,15 +26,14 @@ class RouletteEuropeen extends React.Component {
     this.setState({
       sommetotal: 0,
       sommeDepart: 0,
+      gainOrLose: 0,
       sommeActuel: 0
     });
   }
 
   ajust(e) {
     if (e.target.id == "sommeAjouter") {
-      this.setState({
-        pileValue: e.target.value
-      });
+      this.setState({});
     }
   }
 
@@ -46,8 +44,6 @@ class RouletteEuropeen extends React.Component {
         <br />
         <h2>Simulateur</h2>
         <div>
-          Somme total : {this.state.sommetotal}
-          <br />
           somme de départ : {this.state.sommeDepart}
           <br />
           Somme actuelle : {this.state.sommeActuel}
