@@ -1,7 +1,7 @@
 import React from "react";
 export { PieceRepeat };
-import loiBinomial from "./loiBinomial.js";
-import loiGeometrique from "./loiGeometrique.js";
+import loiBinomial from "./operation/loiBinomial.js";
+import loiGeometrique from "./operation/loiGeometrique.js";
 
 class PieceRepeat extends React.Component {
   constructor(props) {

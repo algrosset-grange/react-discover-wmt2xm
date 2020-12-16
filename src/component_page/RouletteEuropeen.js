@@ -1,5 +1,5 @@
 import React from "react";
-import tabRouletteEuropeenRules from "./tabRouletteEuropeenRules.js";
+import tabRouletteEuropeenRules from "./texte/tabRouletteEuropeenRules.js";
 export { RouletteEuropeen };
 
 class RouletteEuropeen extends React.Component {

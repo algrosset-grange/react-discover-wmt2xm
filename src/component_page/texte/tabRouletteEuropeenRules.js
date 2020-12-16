@@ -1,5 +1,5 @@
 import React from "react";
-import arrondis from "./arrondis.js";
+import arrondis from "../operation/arrondis.js";
 export default function tabRouletteEuropeenRules() {
   return (
     <React.Fragment>
