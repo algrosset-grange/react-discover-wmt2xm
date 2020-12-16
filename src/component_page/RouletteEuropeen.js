@@ -6,6 +6,7 @@ class RouletteEuropeen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      sommetotal: 0,
       sommeDepart: 0,
       sommeActuel: 0,
       prob: 0,
@@ -15,18 +16,16 @@ class RouletteEuropeen extends React.Component {
       nbEchec: 0
     };
     this.ajust = this.ajust.bind(this);
+    this.addMise = this.addMise.bind(this);
   }
 
-  loiBinomial(nbEpreuve, nbSucces, probaSucces) {
-    return (
-      this.getCoefficientBinomial(nbEpreuve, nbSucces) *
-      Math.pow(probaSucces, nbSucces) *
-      Math.pow(1 - probaSucces, nbEpreuve - nbSucces)
-    );
-  }
-
-  loiGeometrique(probaSucces, nbEchec) {
-    return probaSucces * Math.pow(1 - probaSucces, nbEchec);
+  addMise() {
+    alert("on y est");
+    let add_mise = document.getElementById("sommeAjouter");
+    if (add_mise.value != "")
+      this.setState({
+        sommeDepart: this.state.sommeDepart + add_mise.value
+      });
   }
 
   ajust(e) {
@@ -46,13 +45,16 @@ class RouletteEuropeen extends React.Component {
         <div>
           Somme total : {this.state.sommetotal}
           <br />
+          somme de départ : {this.state.sommeDepart}
+          <br />
           Somme actuelle : {this.state.sommeActuel}
           <br />
           <label for="pile-label">ajouter de l'argent : </label>
-          <input type="number" id="sommeAjouter" onChange={this.ajust} />
+          <input type="number" id="sommeAjouter" />
+          <button onclick={this.addMise}>ajouter</button>
         </div>
         <div>gain/perte remporté : {this.state.gain}</div>
-        mise
+        <div>mise : </div>
       </React.Fragment>
     );
   }
