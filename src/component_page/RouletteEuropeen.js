@@ -8,24 +8,27 @@ class RouletteEuropeen extends React.Component {
     this.state = {
       sommetotal: 0,
       sommeDepart: 0,
-      sommeActuel: 0,
-      prob: 0,
-      pileValue: 0,
-      nbEpreuve: 1,
-      nbSucces: 0,
-      nbEchec: 0
+      gainOrLose: 0,
+      sommeActuel: 0
     };
     this.ajust = this.ajust.bind(this);
     this.addMise = this.addMise.bind(this);
   }
 
   addMise() {
-    alert("on y est");
     let add_mise = document.getElementById("sommeAjouter");
     if (add_mise.value != "")
       this.setState({
-        sommeDepart: this.state.sommeDepart + add_mise.value
+        sommeDepart: this.state.sommeDepart + Number(add_mise.value)
       });
+  }
+
+  reset() {
+    this.setState({
+      sommetotal: 0,
+      sommeDepart: 0,
+      sommeActuel: 0
+    });
   }
 
   ajust(e) {
@@ -51,9 +54,10 @@ class RouletteEuropeen extends React.Component {
           <br />
           <label for="pile-label">ajouter de l'argent : </label>
           <input type="number" id="sommeAjouter" />
-          <button onclick={this.addMise}>ajouter</button>
+          <button onClick={this.addMise}>ajouter</button>
         </div>
         <div>gain/perte remporté : {this.state.gain}</div>
+        <button onClick={this.reset}>reset</button>
         <div>mise : </div>
       </React.Fragment>
     );
