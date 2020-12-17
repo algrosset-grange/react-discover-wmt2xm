@@ -37,6 +37,21 @@ class RouletteEuropeen extends React.Component {
     }
   }
 
+  getTypeMise() {}
+
+  onChangeTypeMise(event) {
+    switch (event.target.value) {
+      case "1":
+        console.log("ça passe");
+        break;
+      case "2":
+        break;
+      default:
+        return;
+        break;
+    }
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -55,6 +70,22 @@ class RouletteEuropeen extends React.Component {
         <div>gain/perte remporté : {this.state.gain}</div>
         <button onClick={this.reset}>reset</button>
         <div>mise : </div>
+        <div onChange={this.onChangeTypeMise}>
+          <input type="radio" value="1" name="gender" /> Plein (1 cases)
+          <br />
+          <input type="radio" value="2" name="gender" /> à cheval (2 cases)
+          <br />
+          <input type="radio" value="3" name="gender" /> transversale (3 cases)
+          <br />
+          <input type="radio" value="6" name="gender" /> sizain (6 cases)
+          <br />
+          <input type="radio" value="12" name="gender" /> douzaine (12 cases)
+          <br />
+          <input type="radio" value="24" name="gender" /> Deux douzaines à
+          cheval (24 cases)
+          <br />
+        </div>
+        {this.getTypeMise}
       </React.Fragment>
     );
   }
