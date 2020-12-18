@@ -12,6 +12,7 @@ class RouletteEuropeen extends React.Component {
     };
     this.ajust = this.ajust.bind(this);
     this.addMise = this.addMise.bind(this);
+    this.onChangeTypeMise = this.onChangeTypeMise.bind(this);
   }
 
   addMise() {
@@ -27,7 +28,8 @@ class RouletteEuropeen extends React.Component {
       sommetotal: 0,
       sommeDepart: 0,
       gainOrLose: 0,
-      sommeActuel: 0
+      sommeActuel: 0,
+      typeMise: "0"
     });
   }
 
@@ -37,12 +39,11 @@ class RouletteEuropeen extends React.Component {
     }
   }
 
-  getTypeMise() {}
-
   onChangeTypeMise(event) {
+    let va;
     switch (event.target.value) {
       case "1":
-        console.log("ça passe");
+        va = <div>a</div>;
         break;
       case "2":
         break;
@@ -50,6 +51,9 @@ class RouletteEuropeen extends React.Component {
         return;
         break;
     }
+    this.setState({
+      typeMise: va
+    });
   }
 
   render() {
@@ -85,7 +89,7 @@ class RouletteEuropeen extends React.Component {
           cheval (24 cases)
           <br />
         </div>
-        {this.getTypeMise}
+        {this.state.typeMise}
       </React.Fragment>
     );
   }
