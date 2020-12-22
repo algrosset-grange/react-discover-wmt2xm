@@ -40,20 +40,29 @@ class RouletteEuropeen extends React.Component {
   }
 
   onChangeTypeMise(event) {
-    let va;
-    switch (event.target.value) {
+    this.setState({
+      typeMise: event.target.value
+    });
+  }
+
+  loadTypeMise() {
+    switch (this.state.typeMise) {
       case "1":
-        va = <div>a</div>;
-        break;
+        return (
+          <div>
+            <input type="number" id="valeurmisé-1" />
+          </div>
+        );
       case "2":
-        break;
+        return (
+          <div>
+            <input type="number" id="valeurmisé-1" />
+            <input type="number" id="valeurmisé-2" />
+          </div>
+        );
       default:
         return;
-        break;
     }
-    this.setState({
-      typeMise: va
-    });
   }
 
   render() {
