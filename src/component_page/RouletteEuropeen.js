@@ -96,6 +96,13 @@ class RouletteEuropeen extends React.Component {
             <input type="number" id="valeurmise-douzaine-noir" /> noir
           </div>
         );
+      case "24":
+        return (
+          <div>
+            <input type="number" id="valeurmise-ddouzaine-1" /> 1-24
+            <input type="number" id="valeurmise-ddouzaine-2" /> 13-36
+          </div>
+        );
       default:
         return;
     }
