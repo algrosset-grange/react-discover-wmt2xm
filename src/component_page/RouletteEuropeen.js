@@ -8,7 +8,9 @@ class RouletteEuropeen extends React.Component {
     this.state = {
       sommeDepart: 0,
       gainOrLose: 0,
-      sommeActuel: 0
+      sommeActuel: 0,
+      value,
+      nextForm
     };
     this.ajust = this.ajust.bind(this);
     this.addMise = this.addMise.bind(this);
@@ -40,13 +42,15 @@ class RouletteEuropeen extends React.Component {
   }
 
   onChangeTypeMise(event) {
+    let next_form = this.loadTypeMise(event.target.value);
     this.setState({
-      typeMise: event.target.value
+      typeMise: event.target.value,
+      nextForm: next_form
     });
   }
 
-  loadTypeMise() {
-    switch (this.state.typeMise) {
+  loadTypeMise(new_value) {
+    switch (new_value) {
       case "1":
         return (
           <div>
@@ -145,6 +149,7 @@ class RouletteEuropeen extends React.Component {
           <br />
         </div>
         {this.state.typeMise}
+        {this.state.nextForm}
       </React.Fragment>
     );
   }
