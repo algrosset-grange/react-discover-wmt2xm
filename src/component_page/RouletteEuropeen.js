@@ -42,9 +42,10 @@ class RouletteEuropeen extends React.Component {
   }
 
   onChangeTypeMise(event) {
-    let next_form = this.loadTypeMise(event.target.value);
+    const val = event.target.value;
+    let next_form = this.loadTypeMise(val);
     this.setState({
-      typeMise: event.target.value,
+      typeMise: val,
       nextForm: next_form
     });
   }
